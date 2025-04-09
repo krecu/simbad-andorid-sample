@@ -31,17 +31,16 @@ class MainActivity : AppCompatActivity() {
         adButton = findViewById(R.id.button)
         adButton!!.setOnClickListener {
             if (SdkOK) {
-                showAds320x50()
+                showAds()
             }
         }
         initSDK()
     }
 
-    // load ad to placement
-    private fun showAds320x50() {
+    private fun showAds() {
 
         // define ad placement
-        val adUnit = BannerView(this, "mybl_android_slot4_commerce_home_320x50", AdSize(320, 50))
+        val adUnit = BannerView(this, "place_361_130_test", AdSize(361, 130))
 
         // bidding
         binding.banner32050.addView(adUnit)
@@ -72,11 +71,9 @@ class MainActivity : AppCompatActivity() {
     // Init SDK
     private fun initSDK() {
         // account name
-        PrebidMobile.setPrebidServerAccountId("com.arena.banglalinkmela.app")
+        PrebidMobile.setPrebidServerAccountId("app.apteka.360")
         // prebid address endpoint
-        PrebidMobile.setPrebidServerHost(Host.createCustomHost("https://prebid.bangladsp.com/openrtb2/auction"))
-        // prebid status endpoint
-        PrebidMobile.setCustomStatusEndpoint("https://prebid.bangladsp.com/status")
+        PrebidMobile.setPrebidServerHost(Host.createCustomHost("https://bid.simbad.pro/ads/app"))
         // timeout bidrequest
         PrebidMobile.setTimeoutMillis(100000)
         // share geo information
